@@ -8,56 +8,54 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-  // Load todos from localStorage
   const getInitialTodos = () => {
-    const savedTodos = localStorage.getItem("todos");
-    return savedTodos ? JSON.parse(savedTodos) : [];
+    const saved = localStorage.getItem("crochet_todos_v2");
+    return saved ? JSON.parse(saved) : [];
   };
 
   const [todos, setTodos] = useState(getInitialTodos);
 
-  // Save todos to localStorage
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("crochet_todos_v2", JSON.stringify(todos));
   }, [todos]);
 
-  // Add Todo
-  const addTodo = (title, desc) => {
+  const addTodo = (title, desc, cat = "other", emoji = "📌") => {
     const sno = todos.length === 0 ? 1 : todos[todos.length - 1].sno + 1;
-
-    const myTodo = {
-      sno,
-      title,
-      desc,
-    };
-
-    setTodos([...todos, myTodo]);
+    setTodos([...todos, { sno, title, desc, cat, emoji, done: false }]);
   };
 
-  // Delete Todo
   const onDelete = (todo) => {
     setTodos(todos.filter((e) => e.sno !== todo.sno));
   };
 
+  const onToggle = (sno, done) => {
+    setTodos(todos.map((t) => (t.sno === sno ? { ...t, done } : t)));
+  };
+
   return (
     <Router>
-      <Header title="My Todos List" searchBar={false} />
-
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <AddTodo addTodo={addTodo} />
-              <Todos todos={todos} onDelete={onDelete} />
-            </>
-          }
-        />
-
-        <Route path="/about" element={<About />} />
-      </Routes>
-
-      <Footer />
+      <div className="app-wrapper">
+        <Header title="My Crochet To-Do 🧶" searchBar={false} />
+        <main className="main-content">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <AddTodo addTodo={addTodo} />
+                  <Todos
+                    todos={todos}
+                    onDelete={onDelete}
+                    onToggle={onToggle}
+                  />
+                </>
+              }
+            />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }

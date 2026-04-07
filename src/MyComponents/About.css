@@ -1,0 +1,56 @@
+.about-page {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.about-card {
+  background: white;
+  border: 1.5px solid var(--pink-100);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.about-hero {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-title {
+  font-family: "Pacifico", cursive;
+  font-size: 1.5rem;
+  color: var(--pink-600);
+  margin-bottom: 1rem;
+}
+
+.about-body {
+  color: var(--text-mid);
+  font-size: 0.97rem;
+  line-height: 1.7;
+  margin-bottom: 1.4rem;
+}
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.about-tags span {
+  background: var(--pink-50);
+  border: 1.5px solid var(--pink-100);
+  color: var(--pink-600);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.about-sub {
+  color: var(--text-light);
+  font-size: 0.88rem;
+}

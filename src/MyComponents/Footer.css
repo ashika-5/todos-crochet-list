@@ -1,1 +1,25 @@
- 
+ .footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #f95d9b, #c21f63);
+  color: rgba(255,255,255,0.88);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.footer-yarn { font-size: 1.1rem; }
+
+.heart {
+  color: white;
+  font-size: 1rem;
+  display: inline-block;
+  animation: pulse 1.4s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1);   }
+  50%       { transform: scale(1.3); }
+}
