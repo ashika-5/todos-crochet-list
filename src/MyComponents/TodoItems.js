@@ -1,18 +1,8 @@
 import React, { useState } from "react";
 import "./TodoItems.css";
 
-const CAT_STYLES = {
-  yarn: { bg: "#e8fdf5", color: "#0f6e56", label: "Yarn type" },
-  stitch: { bg: "#eeedfe", color: "#3c3489", label: "Stitch" },
-  pattern: { bg: "#fbeaf0", color: "#993556", label: "Pattern" },
-  tool: { bg: "#faeeda", color: "#854f0b", label: "Tool" },
-  video: { bg: "#e6f1fb", color: "#185fa5", label: "Tutorial" },
-  other: { bg: "#f1efe8", color: "#5f5e5a", label: "Other" },
-};
-
-const TodoItems = ({ todo, onDelete, onToggle }) => {
+const TodoItems = ({ todo, onDelete, onToggle, onEdit }) => {
   const [done, setDone] = useState(todo.done || false);
-  const style = CAT_STYLES[todo.cat] || CAT_STYLES.other;
 
   const handleToggle = () => {
     const next = !done;
@@ -22,36 +12,64 @@ const TodoItems = ({ todo, onDelete, onToggle }) => {
 
   return (
     <div className={`todo-card ${done ? "todo-card--done" : ""}`}>
-      {/* Done checkbox */}
       <button
         className={`check-btn ${done ? "check-btn--checked" : ""}`}
         onClick={handleToggle}
-        aria-label="Toggle done"
       >
         {done && <span className="checkmark">✓</span>}
       </button>
 
       <div className="todo-body">
         <div className="todo-top">
-          <span className="todo-emoji">{todo.emoji || "📌"}</span>
+          <span className="todo-emoji">🧶</span>
           <h4 className={`todo-title ${done ? "todo-title--done" : ""}`}>
             {todo.title}
           </h4>
-          <span
-            className="todo-tag"
-            style={{ background: style.bg, color: style.color }}
-          >
-            {style.label}
-          </span>
         </div>
+
         <p className="todo-desc">{todo.desc}</p>
+
+        {todo.yarnType && (
+          <p className="todo-detail">
+            <strong>🧶 Yarn:</strong> {todo.yarnType}
+          </p>
+        )}
+        {todo.stitches && (
+          <p className="todo-detail">
+            <strong>✨ Stitches:</strong> {todo.stitches}
+          </p>
+        )}
+        {todo.tools && (
+          <p className="todo-detail">
+            <strong>🛠️ Tools:</strong> {todo.tools}
+          </p>
+        )}
+
+        {/* Pattern Image */}
+        {todo.patternImage && (
+          <div className="todo-image-container">
+            <p className="image-label">📄 Pattern</p>
+            <img src={todo.patternImage} alt="Pattern" className="todo-image" />
+          </div>
+        )}
+
+        {/* Project Image */}
+        {todo.projectImage && (
+          <div className="todo-image-container">
+            <p className="image-label">📸 Finished Project</p>
+            <img src={todo.projectImage} alt="Project" className="todo-image" />
+          </div>
+        )}
+
+        <p className="todo-date">
+          Added {new Date(todo.createdAt).toLocaleDateString()}
+        </p>
       </div>
 
-      <button
-        className="delete-btn"
-        onClick={() => onDelete(todo)}
-        aria-label="Delete"
-      >
+      <button className="edit-btn" onClick={() => onEdit(todo)}>
+        ✏️
+      </button>
+      <button className="delete-btn" onClick={() => onDelete(todo)}>
         🗑️
       </button>
     </div>

@@ -110,3 +110,53 @@
   flex-shrink: 0;
 }
 .delete-btn:hover { opacity: 1; background: #fff0f0; transform: scale(1.1); }
+
+.todo-detail {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+.todo-image-container {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.todo-image {
+  width: 100%;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 3px solid var(--pink-100);
+  box-shadow: var(--shadow-md);
+}
+
+
+.todo-detail {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+.todo-image-container {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.image-label {
+  font-size: 0.8rem;
+  color: var(--pink-500);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.todo-image {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 3px solid var(--pink-100);
+  box-shadow: var(--shadow-md);
+}
