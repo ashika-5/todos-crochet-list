@@ -72,7 +72,6 @@ const AddTodo = ({ addTodo, editingTodo, editTodo, setEditingTodo }) => {
       );
     }
 
-    // Reset form
     setTitle("");
     setDesc("");
     setYarnType("");
@@ -123,7 +122,7 @@ const AddTodo = ({ addTodo, editingTodo, editTodo, setEditingTodo }) => {
               <label>Description / Notes</label>
               <textarea
                 className="field-input field-textarea"
-                placeholder="Write anything special about this project..."
+                placeholder="Write anything special..."
                 value={desc}
                 onChange={(e) => setDesc(e.target.value)}
                 rows={4}
@@ -149,7 +148,7 @@ const AddTodo = ({ addTodo, editingTodo, editTodo, setEditingTodo }) => {
                 <input
                   type="text"
                   className="field-input"
-                  placeholder="e.g. MR, SC, INC, DEC, SS"
+                  placeholder="e.g. MR, SC, INC, DEC"
                   value={stitches}
                   onChange={(e) => setStitches(e.target.value)}
                 />
@@ -160,13 +159,12 @@ const AddTodo = ({ addTodo, editingTodo, editTodo, setEditingTodo }) => {
                 <input
                   type="text"
                   className="field-input"
-                  placeholder="e.g. 3.5mm hook, stitch marker, yarn needle"
+                  placeholder="e.g. 3.5mm hook, stitch marker"
                   value={tools}
                   onChange={(e) => setTools(e.target.value)}
                 />
               </div>
 
-              {/* Pattern Image */}
               <div className="field-row">
                 <label>Pattern Image 📄</label>
                 <div className="image-upload-box">
@@ -185,14 +183,13 @@ const AddTodo = ({ addTodo, editingTodo, editTodo, setEditingTodo }) => {
                       />
                     ) : (
                       <span className="upload-placeholder">
-                        📸 Upload pattern / chart
+                        📸 Upload pattern image
                       </span>
                     )}
                   </label>
                 </div>
               </div>
 
-              {/* Project Image */}
               <div className="field-row">
                 <label>Project Image 📸</label>
                 <div className="image-upload-box">

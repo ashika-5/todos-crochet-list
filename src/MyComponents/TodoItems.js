@@ -31,32 +31,30 @@ const TodoItems = ({ todo, onDelete, onToggle, onEdit }) => {
 
         {todo.yarnType && (
           <p className="todo-detail">
-            <strong>🧶 Yarn:</strong> {todo.yarnType}
+            <strong>Yarn:</strong> {todo.yarnType}
           </p>
         )}
         {todo.stitches && (
           <p className="todo-detail">
-            <strong>✨ Stitches:</strong> {todo.stitches}
+            <strong>Stitches:</strong> {todo.stitches}
           </p>
         )}
         {todo.tools && (
           <p className="todo-detail">
-            <strong>🛠️ Tools:</strong> {todo.tools}
+            <strong>Tools:</strong> {todo.tools}
           </p>
         )}
 
-        {/* Pattern Image */}
         {todo.patternImage && (
           <div className="todo-image-container">
-            <p className="image-label">📄 Pattern</p>
+            <p className="image-label">Pattern Image</p>
             <img src={todo.patternImage} alt="Pattern" className="todo-image" />
           </div>
         )}
 
-        {/* Project Image */}
         {todo.projectImage && (
           <div className="todo-image-container">
-            <p className="image-label">📸 Finished Project</p>
+            <p className="image-label">Project Image</p>
             <img src={todo.projectImage} alt="Project" className="todo-image" />
           </div>
         )}
