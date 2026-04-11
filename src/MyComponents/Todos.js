@@ -12,20 +12,21 @@ const Todos = ({
 }) => {
   const [sortBy, setSortBy] = useState("newest");
 
-  let processed = [...todos];
-
-  // Search
-  if (searchTerm) {
+  // Filter by search term (real-time)
+  let filteredTodos = todos.filter((todo) => {
+    if (!searchTerm) return true;
     const term = searchTerm.toLowerCase();
-    processed = processed.filter(
-      (t) =>
-        t.title.toLowerCase().includes(term) ||
-        t.desc.toLowerCase().includes(term),
+    return (
+      todo.title.toLowerCase().includes(term) ||
+      todo.desc.toLowerCase().includes(term) ||
+      (todo.yarnType && todo.yarnType.toLowerCase().includes(term)) ||
+      (todo.stitches && todo.stitches.toLowerCase().includes(term)) ||
+      (todo.tools && todo.tools.toLowerCase().includes(term))
     );
-  }
+  });
 
-  // Sort
-  processed = processed.sort((a, b) => {
+  // Sort the filtered results
+  filteredTodos = [...filteredTodos].sort((a, b) => {
     if (sortBy === "newest")
       return new Date(b.createdAt) - new Date(a.createdAt);
     if (sortBy === "oldest")
@@ -39,6 +40,7 @@ const Todos = ({
 
   return (
     <div className="todos-section">
+      {/* Stats Bar */}
       {todos.length > 0 && (
         <div className="stats-bar">
           <div className="stat-pill">
@@ -64,7 +66,7 @@ const Todos = ({
         </div>
       )}
 
-      {/* Only ALL button - no other categories */}
+      {/* Only ALL button */}
       {todos.length > 0 && (
         <div className="filter-tabs">
           <button className="filter-tab filter-tab--active">
@@ -73,7 +75,7 @@ const Todos = ({
         </div>
       )}
 
-      {/* Sort */}
+      {/* Sort Dropdown */}
       {todos.length > 0 && (
         <div className="sort-row">
           <span className="sort-label">Sort by:</span>
@@ -89,6 +91,7 @@ const Todos = ({
         </div>
       )}
 
+      {/* Todo List */}
       <div className="todos-list">
         {todos.length === 0 ? (
           <div className="empty-state">
@@ -96,12 +99,12 @@ const Todos = ({
             <p className="empty-title">No tasks yet!</p>
             <p className="empty-sub">Add your first crochet task above ✨</p>
           </div>
-        ) : processed.length === 0 ? (
+        ) : filteredTodos.length === 0 ? (
           <div className="empty-state">
-            <p className="empty-sub">No tasks match your search.</p>
+            <p className="empty-sub">No tasks found for "{searchTerm}"</p>
           </div>
         ) : (
-          processed.map((todo) => (
+          filteredTodos.map((todo) => (
             <TodoItems
               todo={todo}
               key={todo.sno}

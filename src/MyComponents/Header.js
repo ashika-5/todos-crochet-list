@@ -1,9 +1,15 @@
+// Header.js
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
-export default function Header(props) {
+export default function Header({
+  title,
+  searchBar,
+  searchTerm,
+  onSearchChange,
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -12,7 +18,7 @@ export default function Header(props) {
         {/* Brand */}
         <Link className="header-brand" to="/">
           <span className="brand-icon">🧶</span>
-          <span className="brand-text">{props.title}</span>
+          <span className="brand-text">{title}</span>
         </Link>
 
         {/* Desktop nav */}
@@ -21,18 +27,20 @@ export default function Header(props) {
             Home
           </Link>
           <Link className="nav-link" to="/about">
-            About
+            My Orders
           </Link>
         </nav>
 
-        {/* Search */}
-        {props.searchBar && (
+        {/* Search Bar */}
+        {searchBar && (
           <div className="header-search">
             <span className="search-icon">🔍</span>
             <input
               type="search"
-              placeholder="Search todos..."
+              placeholder="Search your crochet projects... 🧵"
               className="search-input"
+              value={searchTerm || ""}
+              onChange={(e) => onSearchChange(e.target.value)}
             />
           </div>
         )}
@@ -60,7 +68,7 @@ export default function Header(props) {
             to="/about"
             onClick={() => setMenuOpen(false)}
           >
-            About
+            My Orders
           </Link>
         </div>
       )}
@@ -69,11 +77,15 @@ export default function Header(props) {
 }
 
 Header.defaultProps = {
-  title: "My Crochet To-Do",
-  searchBar: false,
+  title: "My Crochet To-Do 🧶",
+  searchBar: true,
+  searchTerm: "",
+  onSearchChange: () => {},
 };
 
 Header.propTypes = {
   title: PropTypes.string,
   searchBar: PropTypes.bool,
+  searchTerm: PropTypes.string,
+  onSearchChange: PropTypes.func,
 };
