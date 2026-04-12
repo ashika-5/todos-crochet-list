@@ -33,12 +33,16 @@
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .brand-text {
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
   font-size: 1.65rem;
   color: white;
   letter-spacing: 1px;
@@ -74,17 +78,17 @@
   align-items: center;
 }
 
-.search-icon {
+#searcgg .search-icon {
   position: absolute;
   left: 16px;
   font-size: 16px;
   pointer-events: none;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .search-input {
-  background: rgba(255, 255, 255, 0.20);
-  border: 2px solid rgba(255, 255, 255, 0.40);
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   border-radius: 9999px;
   padding: 11px 14px 11px 48px;
   color: white;
@@ -94,8 +98,8 @@
   transition: all 0.35s ease;
 }
 
-.search-input::placeholder { 
-  color: rgba(255, 255, 255, 0.70); 
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .search-input:focus {
@@ -130,12 +134,20 @@
   background: rgba(230, 57, 128, 0.98);
   padding: 1rem 1.5rem 1.5rem;
   gap: 6px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 640px) {
-  .header-nav { display: none; }
-  .header-search { display: none; }
-  .menu-toggle { display: flex; }
-  .brand-text { font-size: 1.35rem; }
+  .header-nav {
+    display: none;
+  }
+  .header-search {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+  .brand-text {
+    font-size: 1.35rem;
+  }
 }
