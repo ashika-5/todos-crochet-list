@@ -1,49 +1,207 @@
-/* AddTodo.css - Only the improved parts (replace your old one) */
+/* AddTodo.css - Improved version */
+
+.add-section {
+  max-width: 820px;
+  margin: 2.5rem auto 0;
+  padding: 0 1.25rem;
+}
 
 .add-trigger-btn {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 1.25rem 1.6rem;
+  gap: 16px;
+  padding: 1.4rem 1.8rem;
   background: white;
-  border: 3px dashed var(--pink-400);
-  border-radius: var(--radius-lg);
-  color: var(--pink-600);
+  border: 3px dashed #ff9bcc;
+  border-radius: 24px;
+  color: #e63980;
   font-family: 'Nunito', sans-serif;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 15px rgba(249, 93, 155, 0.1);
 }
 
 .add-trigger-btn:hover {
-  background: var(--pink-50);
-  border-color: var(--pink-500);
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-6px);
+  border-color: #f95d9b;
+  box-shadow: 0 12px 25px rgba(249, 93, 155, 0.18);
 }
 
+.add-card {
+  background: white;
+  border-radius: 28px;
+  box-shadow: 0 15px 40px rgba(233, 57, 128, 0.12);
+  border: 1px solid #ffe4f0;
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.add-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 2rem;
+  background: linear-gradient(135deg, #fff0f7, #f3e8ff);
+  border-bottom: 1px solid #ffe4f0;
+}
+
+.add-card-header span {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #c21f63;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: #999;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.close-btn:hover {
+  background: #ffe4f0;
+  color: #e63980;
+}
+
+.add-form {
+  padding: 2rem;
+}
+
+.field-row {
+  margin-bottom: 1.4rem;
+}
+
+.field-row label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #e63980;
+  margin-bottom: 8px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.field-input,
+.field-textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #ffe4f0;
+  border-radius: 16px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  background: #fffafc;
+  transition: all 0.2s;
+}
+
+.field-input:focus,
+.field-textarea:focus {
+  border-color: #f95d9b;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(249, 93, 155, 0.1);
+}
+
+.field-textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.details-section {
+  margin: 2rem 0;
+  padding: 1.8rem;
+  background: #fff0f7;
+  border-radius: 24px;
+  border: 2px dashed #ff9bcc;
+}
+
+.details-title {
+  font-size: 1.15rem;
+  color: #c21f63;
+  margin-bottom: 1.4rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Image Upload - Much better */
 .image-upload-box {
-  border: 3px dashed var(--pink-400);
-  border-radius: var(--radius-lg);
-  padding: 1.8rem 1rem;
+  border: 3px dashed #ff9bcc;
+  border-radius: 20px;
+  padding: 2rem 1rem;
   text-align: center;
   background: white;
-  cursor: pointer;
   transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
 }
 
 .image-upload-box:hover {
-  border-color: var(--pink-600);
+  border-color: #f95d9b;
   background: #fff5fa;
-  transform: scale(1.02);
+}
+
+.upload-label {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
 }
 
 .preview-thumb {
   max-width: 100%;
-  max-height: 240px;
-  border-radius: 16px;
-  border: 5px solid white;
-  box-shadow: var(--shadow-lg);
+  max-height: 260px;
+  border-radius: 18px;
+  border: 6px solid white;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.upload-placeholder {
+  color: #f95d9b;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.btn-cancel,
+.btn-add {
+  padding: 12px 28px;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.btn-cancel {
+  background: white;
+  border: 2px solid #ff9bcc;
+  color: #e63980;
+}
+
+.btn-cancel:hover {
+  background: #ffe4f0;
+}
+
+.btn-add {
+  background: linear-gradient(135deg, #f95d9b, #e63980);
+  color: white;
+  border: none;
+  box-shadow: 0 6px 20px rgba(249, 93, 155, 0.3);
+}
+
+.btn-add:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(249, 93, 155, 0.4);
 }
