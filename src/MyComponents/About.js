@@ -134,7 +134,9 @@ const About = () => {
           )}
         </div>
 
-        <p className="about-sub">Made with love for crochet enthusiasts 💕</p>
+        <p className="about-sub">
+          Made with pure love for crochet enthusiasts{" "}
+        </p>
       </div>
     </div>
   );
