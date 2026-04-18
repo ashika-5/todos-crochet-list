@@ -1,144 +1,154 @@
-/* TodoItems.css */
+/* TodoItems.css - Improved with better spacing & delightful animation */
+
 .todo-card {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 16px;
   background: white;
-  border: 2px solid var(--pink-100);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem 1.35rem;
-  margin-bottom: 14px;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: fadeUp 0.3s ease;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+  border: 2.5px solid #ffe4f0;
+  border-radius: 24px;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 20px rgba(233, 57, 128, 0.08);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .todo-card:hover {
-  border-color: var(--pink-300);
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
+  border-color: #ff9bcc;
+  box-shadow: 0 15px 35px rgba(233, 57, 128, 0.18);
+  transform: translateY(-6px);
 }
 
 .todo-card--done {
-  background: var(--pink-50);
-  border-color: var(--pink-200);
-  opacity: 0.85;
+  background: #fff0f7;
+  border-color: #ff9bcc;
+  opacity: 0.92;
 }
 
 .check-btn {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  border: 3px solid var(--pink-300);
+  border: 3.5px solid #ff9bcc;
   background: white;
   cursor: pointer;
   flex-shrink: 0;
-  margin-top: 3px;
+  margin-top: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.25s;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(249, 93, 155, 0.15);
 }
 
 .check-btn:hover {
-  border-color: var(--pink-400);
-  background: var(--pink-50);
+  border-color: #f95d9b;
+  transform: scale(1.08);
 }
 
 .check-btn--checked {
   background: linear-gradient(135deg, #f95d9b, #e63980);
   border-color: transparent;
-  animation: pop 0.4s ease;
+  animation: completePop 0.5s ease forwards;
 }
 
-@keyframes pop {
-  0% { transform: scale(0.5); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
+@keyframes completePop {
+  0% { transform: scale(0.6) rotate(-12deg); }
+  50% { transform: scale(1.25) rotate(8deg); }
+  100% { transform: scale(1) rotate(0); }
 }
 
 .checkmark {
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 900;
 }
 
-.todo-body { flex: 1; min-width: 0; }
+.todo-body {
+  flex: 1;
+  min-width: 0;
+}
 
 .todo-top {
   display: flex;
   align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 6px;
+  gap: 12px;
+  margin-bottom: 8px;
 }
 
-.todo-emoji { font-size: 22px; }
+.todo-emoji {
+  font-size: 26px;
+  flex-shrink: 0;
+}
 
 .todo-title {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: var(--text-dark);
-  flex: 1;
-  line-height: 1.35;
+  color: #2d1b2e;
+  line-height: 1.4;
 }
 
 .todo-title--done {
   text-decoration: line-through;
-  color: var(--text-light);
+  color: #8c7a8f;
 }
 
 .todo-desc {
-  font-size: 0.9rem;
-  color: var(--text-mid);
-  line-height: 1.6;
-  margin-bottom: 8px;
+  font-size: 0.93rem;
+  color: #5c4a5e;
+  line-height: 1.65;
+  margin-bottom: 10px;
 }
 
 .todo-detail {
-  font-size: 0.87rem;
-  color: var(--text-mid);
-  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #8c7a8f;
+  margin: 6px 0;
 }
 
 .todo-image-container {
-  margin-top: 14px;
+  margin-top: 16px;
   text-align: center;
 }
 
 .image-label {
-  font-size: 0.82rem;
-  color: var(--pink-600);
+  font-size: 0.84rem;
+  color: #e63980;
   margin-bottom: 8px;
   font-weight: 700;
 }
 
 .todo-image {
   width: 100%;
-  max-height: 220px;
+  max-height: 240px;
   object-fit: cover;
-  border-radius: 18px;
-  border: 4px solid var(--pink-100);
-  box-shadow: var(--shadow-md);
+  border-radius: 20px;
+  border: 5px solid #ffe4f0;
+  box-shadow: 0 10px 30px rgba(233, 57, 128, 0.12);
 }
 
+/* Action buttons */
 .edit-btn, .delete-btn {
   background: none;
   border: none;
+  font-size: 1.5rem;
+  padding: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 1.35rem;
-  padding: 6px 8px;
-  border-radius: 10px;
-  opacity: 0.5;
+  opacity: 0.55;
   transition: all 0.2s;
-  flex-shrink: 0;
-  margin-top: 4px;
 }
 
-.edit-btn:hover { opacity: 1; background: var(--pink-50); color: var(--pink-600); }
-.delete-btn:hover { opacity: 1; background: #ffebee; color: #c62828; }
+.edit-btn:hover {
+  opacity: 1;
+  background: #fff0f7;
+  color: #f95d9b;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+  background: #ffebee;
+  color: #e63980;
+}
