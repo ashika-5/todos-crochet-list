@@ -76,6 +76,3 @@ const TodoItems = ({ todo, onDelete, onToggle, onEdit }) => {
 
 export default TodoItems;
 
-
-// may be im commiting here a last time...
-//aljcoavlas
